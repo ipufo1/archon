@@ -62,7 +62,7 @@ local Library = {
     BackgroundColor = Color3.fromRGB(20, 20, 20);
     AccentColor = Color3.fromRGB(196, 246, 255);
     OutlineColor = Color3.fromRGB(50, 50, 50);
-    RiskColor = Color3.fromRGB(255, 50, 50),
+    RiskColor = Color3.fromRGB(255, 165, 0),
 
     Black = Color3.new(0, 0, 0);
     --Font = Enum.Font.Code,
@@ -1185,7 +1185,7 @@ do
 
             local State = KeyPicker:GetState();
 
-            ContainerLabel.Text = string.format('[%s]: %s (%s)', KeyPicker.Value:sub(1, 5):upper(), Info.Text, KeyPicker.Mode);
+            ContainerLabel.Text = string.format('[%s]: %s', KeyPicker.Value:sub(1, 5):upper(), Info.Text, KeyPicker.Mode);
 
             ContainerLabel.Visible = true;
             ContainerLabel.TextColor3 = (State and (ParentObj.Value or true)) and Library.AccentColor or Library.FontColor;
