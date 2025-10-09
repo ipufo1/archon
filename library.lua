@@ -1185,7 +1185,7 @@ do
 
             local State = KeyPicker:GetState();
 
-            ContainerLabel.Text = string.format('[%s]: %s', KeyPicker.Value:sub(1, 5):upper(), Info.Text, KeyPicker.Mode);
+            ContainerLabel.Text = string.format('[%s]: %s (%s)', KeyPicker.Value:sub(1, 5):upper(), Info.Text, KeyPicker.Mode);
 
             ContainerLabel.Visible = true;
             ContainerLabel.TextColor3 = (State and (ParentObj.Value or true)) and Library.AccentColor or Library.FontColor;
@@ -1204,7 +1204,7 @@ do
                 end;
             end;
 
-            Library.KeybindFrame.Size = UDim2.new(0, math.max(XSize + 10, 210), 0, YSize + 23)
+            Library.KeybindFrame.Size = UDim2.new(0, math.max(XSize + 10, 50), 0, YSize + 23)
         end;
 
         function KeyPicker:GetState()
