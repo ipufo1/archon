@@ -6,9 +6,11 @@ local TextSettings = {
     Size = 12;
 };
 
-delfile('ArchonFont.ttf');
-delfile('ArchonFont.json');
-delfile('ArchonImage.png');
+pcall(function()
+    delfile('ArchonFont.ttf');
+    delfile('ArchonFont.json');
+    delfile('ArchonImage.png');
+end);
 
 writefile('ArchonFont.ttf', base64decode(TextSettings.Font));
 writefile('ArchonFont.json', game:GetService("HttpService"):JSONEncode({
