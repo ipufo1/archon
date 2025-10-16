@@ -1187,6 +1187,7 @@ do
 
             local State = KeyPicker:GetState();
 
+            ContainerLabel.Visible = State;
             ContainerLabel.Text = string.format('[%s]: %s (%s)', KeyPicker.Value:sub(1, 5):upper(), Info.Text, KeyPicker.Mode);
 
             ContainerLabel.Visible = true;
@@ -1210,10 +1211,6 @@ do
         end;
 
         function KeyPicker:GetState()
-            if InputService:GetFocusedTextBox() then
-                return false;
-            end;
-
             if KeyPicker.Mode == 'Always' then
                 return true;
             elseif KeyPicker.Mode == 'Hold' then
@@ -1269,6 +1266,9 @@ do
         local Picking = false;
 
         PickOuter.InputBegan:Connect(function(Input, Processed)
+            if InputService:GetFocusedTextBox() then
+                return false;
+            end;
             if Input.UserInputType == Enum.UserInputType.MouseButton1 and not Library:MouseIsOverOpenedFrame() then
                 Picking = true;
 
@@ -1361,6 +1361,9 @@ do
         end))
 
         Library:GiveSignal(InputService.InputEnded:Connect(function(Input)
+            if InputService:GetFocusedTextBox() then
+                return false;
+            end;
             if (not Picking) then
                 KeyPicker:Update();
             end;
