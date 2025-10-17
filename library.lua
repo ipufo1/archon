@@ -1758,7 +1758,7 @@ do
             Position = UDim2.fromOffset(0, 0),
             Size = UDim2.fromScale(5, 1),
 
-            Font = Library.Font;
+            FontFace = Font;
             PlaceholderColor3 = Color3.fromRGB(190, 190, 190);
             PlaceholderText = Info.Placeholder or '';
 
@@ -1822,7 +1822,7 @@ do
                 if cursor ~= -1 then
                     -- calculate pixel width of text from start to cursor
                     local subtext = string.sub(Box.Text, 1, cursor-1)
-                    local width = TextService:GetTextSize(subtext, Box.TextSize, Box.Font, Vector2.new(math.huge, math.huge)).X
+                    local width = Library:GetTextBounds(subtext, Font, 12);
 
                     -- check if we're inside the box with the cursor
                     local currentCursorPos = Box.Position.X.Offset + width
