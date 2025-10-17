@@ -1189,8 +1189,6 @@ do
 
             ContainerLabel.Visible = State;
             ContainerLabel.Text = string.format('[%s]: %s (%s)', KeyPicker.Value:sub(1, 5):upper(), Info.Text, KeyPicker.Mode);
-
-            ContainerLabel.Visible = true;
             ContainerLabel.TextColor3 = (State and (ParentObj.Value or true)) and Library.AccentColor or Library.FontColor;
 
             Library.RegistryMap[ContainerLabel].Properties.TextColor3 = State and 'AccentColor' or 'FontColor';
